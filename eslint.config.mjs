@@ -24,9 +24,7 @@ export default defineConfig([
       "no-undef": "warn",
     },
   },
-  {
-    files: ["**/*.{js,jsx,ts,tsx}"],
-    ignores: ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx"],
-    ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
-  },
+  ...compat.config({
+    extends: ["next/core-web-vitals", "prettier"],
+  }),
 ]);
