@@ -12,7 +12,6 @@ const compat = new FlatCompat({
 });
 
 export default defineConfig([
-  // Configuração para arquivos de teste
   {
     files: ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx"],
     languageOptions: {
@@ -25,10 +24,9 @@ export default defineConfig([
       "no-undef": "warn",
     },
   },
-  // Configuração para todos os outros arquivos
   {
     files: ["**/*.{js,jsx,ts,tsx}"],
     ignores: ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx"],
-    ...compat.extends("next/core-web-vitals", "next/typescript"),
+    ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
   },
 ]);
