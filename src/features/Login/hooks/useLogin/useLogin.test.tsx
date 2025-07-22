@@ -1,23 +1,36 @@
 import { renderHook } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useLogin } from "./useLogin";
-import { apiService } from "../../../../service/api/config";
 import { LoginCredentials } from "./useLogin.types";
 import { ReactNode } from "react";
+import { apiService } from "../../../../service/api/config";
+import { useAuth } from "@/context/auth-context";
 
-jest.mock("../../../../service/api/config");
+jest.mock("../../../../service/api/config", () => ({
+  apiService: {
+    post: jest.fn()
+  }
+}));
+
+jest.mock("@/context/auth-context", () => ({
+  useAuth: jest.fn()
+}));
+
 jest.mock("next/navigation", () => ({
   useRouter: () => ({
-    push: jest.fn(),
-    replace: jest.fn(),
-    back: jest.fn(),
-    forward: jest.fn(),
-    refresh: jest.fn(),
-    prefetch: jest.fn()
+    push: jest.fn()
   })
 }));
 
+jest.mock("sonner", () => ({
+  toast: {
+    success: jest.fn(),
+    error: jest.fn()
+  }
+}));
+
 const mockApiService = apiService as jest.Mocked<typeof apiService>;
+const mockUseAuth = useAuth as jest.MockedFunction<typeof useAuth>;
 
 const createWrapper = () => {
   const queryClient = new QueryClient({
@@ -31,22 +44,32 @@ const createWrapper = () => {
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
 
-  Wrapper.displayName = "TestWrapper";
   return Wrapper;
 };
 
-describe("useLogin - Teste do Endpoint", () => {
+describe("useLogin", () => {
+  const mockLogin = jest.fn();
+
   beforeEach(() => {
     jest.clearAllMocks();
+
+    mockUseAuth.mockReturnValue({
+      user: null,
+      token: null,
+      isLoading: false,
+      login: mockLogin,
+      logout: jest.fn()
+    });
   });
 
-  it("deve chamar o endpoint de login corretamente", async () => {
+  it("deve fazer login com sucesso", async () => {
     const credentials: LoginCredentials = {
       username: "mor_2314",
       password: "83r5^_"
     };
 
-    mockApiService.post.mockResolvedValue({ token: "test-token" });
+    const mockResponse = { token: "test-token" };
+    mockApiService.post.mockResolvedValue(mockResponse);
 
     const { result } = renderHook(() => useLogin(), {
       wrapper: createWrapper()
@@ -58,22 +81,27 @@ describe("useLogin - Teste do Endpoint", () => {
       "/auth/login",
       credentials
     );
+    expect(mockLogin).toHaveBeenCalledWith("test-token", {
+      id: "1",
+      username: "mor_2314"
+    });
   });
 
-  it("deve falhar quando o endpoint retorna erro", async () => {
+  it("deve falhar quando o login retorna erro", async () => {
     const credentials: LoginCredentials = {
       username: "invalid_user",
       password: "wrong_password"
     };
 
-    mockApiService.post.mockRejectedValue(new Error("Invalid credentials"));
+    const mockError = new Error("Credenciais inválidas");
+    mockApiService.post.mockRejectedValue(mockError);
 
     const { result } = renderHook(() => useLogin(), {
       wrapper: createWrapper()
     });
 
     await expect(result.current.mutateAsync(credentials)).rejects.toThrow(
-      "Invalid credentials"
+      "Credenciais inválidas"
     );
     expect(mockApiService.post).toHaveBeenCalledWith(
       "/auth/login",
