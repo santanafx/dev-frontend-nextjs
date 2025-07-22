@@ -17,6 +17,8 @@ import { Input } from "../../components/ui/input";
 import { Alert, AlertDescription } from "../../components/ui/alert";
 import { Button } from "../../components/ui/button";
 import { useLogin } from "@/features/Login/hooks/useLogin/useLogin";
+import Demo from "./Demo";
+import ErrorMessage from "@/components/common/atoms/ErrorMessage";
 
 const loginSchema = z.object({
   username: z
@@ -75,9 +77,7 @@ const LoginContainer = () => {
                 className={errors.username ? "border-red-500" : ""}
               />
               {errors.username && (
-                <p className="text-sm text-red-500">
-                  {errors.username.message}
-                </p>
+                <ErrorMessage error={errors.username.message} />
               )}
             </div>
             <div className="space-y-2">
@@ -91,18 +91,14 @@ const LoginContainer = () => {
                 className={errors.password ? "border-red-500" : ""}
               />
               {errors.password && (
-                <p className="text-sm text-red-500">
-                  {errors.password.message}
-                </p>
+                <ErrorMessage error={errors.password.message} />
               )}
             </div>
-
             {errors.root && (
               <Alert variant="destructive">
                 <AlertDescription>{errors.root.message}</AlertDescription>
               </Alert>
             )}
-
             <Button
               type="submit"
               className="w-full"
@@ -118,15 +114,7 @@ const LoginContainer = () => {
               )}
             </Button>
           </form>
-
-          <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-            <p className="text-sm text-blue-800">
-              <strong>Demo:</strong> Use as credenciais do FakeStore API
-            </p>
-            <p className="text-xs text-blue-600 mt-1">
-              Exemplo: username: mor_2314 e password: 83r5^_
-            </p>
-          </div>
+          <Demo />
         </CardContent>
       </Card>
     </div>
