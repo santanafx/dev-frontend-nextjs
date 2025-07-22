@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  test:
+  test-and-deploy:
     runs-on: Ubuntu-latest
 
     steps:
@@ -24,16 +24,7 @@ jobs:
         run: npm install
 
       - name: Run tests
-        run: npm test
-
-  deploy:
-    name: Deploy to Vercel
-    runs-on: ubuntu-latest
-    if: success()
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+        run: npm run test
 
       - name: Install Vercel CLI
         run: npm install -g vercel
