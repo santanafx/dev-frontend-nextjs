@@ -3,16 +3,23 @@ import { apiService } from "../../../../service/api/config";
 import { LoginCredentials, LoginResponse } from "./useLogin.types";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/auth-context";
 
 export function useLogin() {
   const queryClient = useQueryClient();
   const router = useRouter();
+  const { login } = useAuth();
 
   return useMutation({
     mutationFn: (credentials: LoginCredentials) =>
       apiService.post<LoginResponse>(`/auth/login`, credentials),
-    onSuccess: (data) => {
-      localStorage.setItem("token", data.token);
+    onSuccess: (data, variables) => {
+      const userData = {
+        id: "1",
+        username: variables.username
+      };
+      login(data.token, userData);
+
       queryClient.invalidateQueries({ queryKey: ["user"] });
       toast.success("Login realizado com sucesso!");
       router.push("/dashboard");
