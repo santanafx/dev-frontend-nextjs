@@ -18,7 +18,7 @@ import { Alert, AlertDescription } from "../../components/ui/alert";
 import { Button } from "../../components/ui/button";
 import { useLogin } from "@/features/Login/hooks/useLogin/useLogin";
 import Demo from "./Demo";
-import ErrorMessage from "@/components/common/atoms/ErrorMessage";
+import ErrorMessage from "@/components/common/atoms/ErrorMessage/ErrorMessage";
 
 const loginSchema = z.object({
   username: z
