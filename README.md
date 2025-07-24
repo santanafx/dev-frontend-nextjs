@@ -34,6 +34,8 @@ Next.js, TypeScript e integração com a FakeStore API.
 - **shadcn/ui** - Componentes de UI reutilizáveis
 - **React Query** - Gerenciamento de estado e cache
 - **Axios** - Cliente HTTP
+- **Zod** - Validação de esquemas e tipos
+- **React Hook Form** - Gerenciamento de formulários
 - **Jest** - Framework de testes
 - **ESLint** - Linter para qualidade de código
 - **Prettier** - Formatador de código
