@@ -53,7 +53,11 @@ const LoginContainer = () => {
   });
 
   const onSubmit = async (data: LoginFormData) => {
-    await loginMutation.mutateAsync(data);
+    const trimmedData = {
+      username: data.username.trim(),
+      password: data.password.trim()
+    };
+    await loginMutation.mutateAsync(trimmedData);
   };
 
   return (
