@@ -254,7 +254,10 @@ export function ProductFormModalContainer({
               <Button type="submit" disabled={isLoading}>
                 {isLoading ? (
                   <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    <Loader2
+                      className="mr-2 h-4 w-4 animate-spin"
+                      data-testid="loader"
+                    />
                     {mode === "create" ? <p>Criando...</p> : <p>Salvando...</p>}
                   </>
                 ) : (
