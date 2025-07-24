@@ -7,7 +7,7 @@ import { toast } from "sonner";
 
 export function useGetProduct({ id }: UseGetProductProps) {
   const query = useQuery<Product>({
-    queryKey: [QueryKeys.PRODUCT],
+    queryKey: [QueryKeys.PRODUCT, id],
     queryFn: () => apiService.get<Product>(`/products/${id}`)
   });
 
