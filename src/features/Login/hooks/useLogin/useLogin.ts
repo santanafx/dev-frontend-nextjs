@@ -4,6 +4,7 @@ import { LoginCredentials, LoginResponse } from "./useLogin.types";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/auth-context";
+import { QueryKeys } from "@/service/api/queryKeys";
 
 export function useLogin() {
   const queryClient = useQueryClient();
@@ -20,7 +21,7 @@ export function useLogin() {
       };
       login(data.token, userData);
 
-      queryClient.invalidateQueries({ queryKey: ["user"] });
+      queryClient.invalidateQueries({ queryKey: [QueryKeys.USERS] });
       toast.success("Login realizado com sucesso!");
       router.push("/dashboard");
     },
