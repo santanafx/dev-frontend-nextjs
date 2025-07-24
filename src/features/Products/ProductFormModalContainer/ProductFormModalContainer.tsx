@@ -255,11 +255,15 @@ export function ProductFormModalContainer({
                 {isLoading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    {mode === "create" ? "Criando..." : "Salvando..."}
+                    {mode === "create" ? <p>Criando...</p> : <p>Salvando...</p>}
                   </>
                 ) : (
                   <>
-                    {mode === "create" ? "Criar Produto" : "Salvar Alterações"}
+                    {mode === "create" ? (
+                      <p>Criar Produto</p>
+                    ) : (
+                      <p>Salvar Alterações</p>
+                    )}
                   </>
                 )}
               </Button>
