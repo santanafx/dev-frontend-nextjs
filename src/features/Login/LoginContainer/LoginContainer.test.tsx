@@ -62,7 +62,7 @@ describe("LoginContainer", () => {
     } as any);
   });
 
-  it("deve chamar onSubmit quando o formulário for submetido", async () => {
+  it("should call onSubmit when the form is submitted", async () => {
     render(<LoginContainer />, { wrapper: createWrapper() });
     const usernameInput = screen.getByPlaceholderText("Digite seu usuário");
     const passwordInput = screen.getByPlaceholderText("Digite sua senha");
