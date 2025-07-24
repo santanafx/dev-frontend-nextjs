@@ -6,6 +6,7 @@ import { useGetProducts } from "../../Products/hooks/useGetProducts/useGetProduc
 import DashboardContainerSkeleton from "./DashboardContainerSkeleton";
 import { Package, DollarSign, Users, BarChart3 } from "lucide-react";
 import StatCard from "../StatCard/StatCard";
+import Header from "@/components/common/atoms/Header/Header";
 
 const DashboardContainer = () => {
   const { user } = useAuth();
@@ -27,14 +28,10 @@ const DashboardContainer = () => {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight">
-          Bem-vindo, {user?.username?.split(" ")[0]}!
-        </h1>
-        <p className="text-muted-foreground">
-          Aqui está um resumo dos seus produtos e performance.
-        </p>
-      </div>
+      <Header
+        title={`Bem-vindo, ${user?.username?.split(" ")[0]}!`}
+        description="Aqui está um resumo dos seus produtos e performance."
+      />
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <StatCard
           title="Total de Produtos"
