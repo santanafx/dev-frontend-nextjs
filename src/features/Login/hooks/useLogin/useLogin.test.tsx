@@ -62,7 +62,7 @@ describe("useLogin", () => {
     });
   });
 
-  it("deve fazer login com sucesso", async () => {
+  it("should login successfully", async () => {
     const credentials: LoginCredentials = {
       username: "mor_2314",
       password: "83r5^_"
@@ -87,7 +87,7 @@ describe("useLogin", () => {
     });
   });
 
-  it("deve falhar quando o login retorna erro", async () => {
+  it("should fail when login returns an error", async () => {
     const credentials: LoginCredentials = {
       username: "invalid_user",
       password: "wrong_password"
