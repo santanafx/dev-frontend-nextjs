@@ -16,13 +16,12 @@ import {
 } from "@/components/ui/breadcrumb";
 import { usePathname } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
-import { AppSidebar } from "@/components/common/organisms/AppSidebar";
+import { AppSidebar } from "@/features/AppSidebar/AppSidebar";
 import { AuthGuard } from "@/components/common/atoms/AuthGuard/AuthGuard";
 
 const breadcrumbMap: Record<string, string> = {
   "/dashboard": "Dashboard",
-  "/products": "Produtos",
-  "/products/new": "Novo Produto"
+  "/products": "Produtos"
 };
 
 export default function DashboardLayout({
