@@ -185,6 +185,15 @@ O `AuthContext` gerencia:
 - Funções de login/logout
 - Persistência de sessão
 
+### Sistema de Proteção de Rotas (AuthGuard)
+
+O `AuthGuard` protege automaticamente as rotas do dashboard:
+
+- **Verificação de autenticação**: Verifica se o usuário está logado
+- **Redirecionamento**: Redireciona para `/login` se não autenticado
+- **Loading state**: Exibe loader durante verificação
+- **Rotas protegidas**: `/dashboard`, `/products` e `/products/[id]`
+
 ## 🧪 Testes
 
 O projeto inclui testes automatizados com Jest para funções críticas:
