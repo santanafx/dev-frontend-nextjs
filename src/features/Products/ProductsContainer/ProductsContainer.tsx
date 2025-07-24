@@ -37,6 +37,7 @@ import { ProductFormModalContainer } from "../ProductFormModalContainer/ProductF
 import { Product } from "../types/product.types";
 import ProductsContainerSkeleton from "./ProductsContainerSkeleton";
 import ProductsNotFound from "./ProductsNotFound";
+import Header from "@/components/common/atoms/Header/Header";
 
 const ProductsContainer = () => {
   const { data: products = [], isLoading, error } = useGetProducts();
@@ -88,10 +89,7 @@ const ProductsContainer = () => {
     <>
       <div className="space-y-6">
         <div className="flex justify-between items-center">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Produtos</h1>
-            <p className="text-muted-foreground">Gerencie seus produtos</p>
-          </div>
+          <Header title={"Produtos"} description={"Gerencie seus produtos"} />
           <Button
             onClick={() => setShowCreateModal(true)}
             className="bg-blue-600 hover:bg-blue-700"
