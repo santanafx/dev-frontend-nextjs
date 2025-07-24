@@ -55,7 +55,7 @@ const defaultProps = {
 };
 
 describe("ProductFormModalContainer", () => {
-  it("deve renderizar o modal de criação corretamente", () => {
+  it("should render the create modal correctly", () => {
     render(<ProductFormModalContainer {...defaultProps} />, {
       wrapper: createWrapper()
     });
