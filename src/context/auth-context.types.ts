@@ -10,3 +10,7 @@ export type AuthContextType = {
   login: (token: string, user: User) => void;
   logout: () => void;
 };
+
+export type AuthProviderProps = {
+  children: React.ReactNode;
+};
