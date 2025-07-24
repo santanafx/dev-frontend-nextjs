@@ -12,7 +12,7 @@ export default function Home() {
   useEffect(() => {
     if (!isLoading) {
       if (token && user) {
-        router.push("/products");
+        router.push("/dashboard");
       } else {
         router.push("/login");
       }
