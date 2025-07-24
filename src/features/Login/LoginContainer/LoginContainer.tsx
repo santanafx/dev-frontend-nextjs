@@ -24,7 +24,7 @@ import { Input } from "../../../components/ui/input";
 import { Alert, AlertDescription } from "../../../components/ui/alert";
 import { Button } from "../../../components/ui/button";
 import { useLogin } from "@/features/Login/hooks/useLogin/useLogin";
-import Demo from "./Demo";
+import Demo from "./Demo/Demo";
 
 const loginSchema = z.object({
   username: z
