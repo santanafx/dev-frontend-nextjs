@@ -19,5 +19,5 @@ export default function Home() {
     }
   }, [user, token, isLoading, router]);
 
-  return <Loader />;
+  return <Loader text="Carregando..." />;
 }
