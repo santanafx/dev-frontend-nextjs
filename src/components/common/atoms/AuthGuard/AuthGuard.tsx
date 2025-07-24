@@ -18,7 +18,7 @@ export function AuthGuard({ children }: AuthGuardProps) {
   }, [user, isLoading, router]);
 
   if (isLoading) {
-    return <Loader />;
+    return <Loader text="Carregando..." />;
   }
 
   if (!user) {
