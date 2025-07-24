@@ -1,5 +1,7 @@
+import ProductsContainer from "@/features/Products/ProductsContainer/ProductsContainer";
+
 const ProductsPage = () => {
-  return <div>ProductsPage</div>;
+  return <ProductsContainer />;
 };
 
 export default ProductsPage;
