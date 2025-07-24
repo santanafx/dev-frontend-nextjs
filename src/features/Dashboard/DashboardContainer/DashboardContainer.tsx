@@ -2,10 +2,10 @@
 
 import { useAuth } from "@/context/auth-context";
 import React from "react";
-import { useGetProducts } from "../Products/hooks/useGetProducts/useGetProducts";
+import { useGetProducts } from "../../Products/hooks/useGetProducts/useGetProducts";
 import DashboardContainerSkeleton from "./DashboardContainerSkeleton";
 import { Package, DollarSign, Users, BarChart3 } from "lucide-react";
-import StatCard from "./StatCard/StatCard";
+import StatCard from "../StatCard/StatCard";
 
 const DashboardContainer = () => {
   const { user } = useAuth();
