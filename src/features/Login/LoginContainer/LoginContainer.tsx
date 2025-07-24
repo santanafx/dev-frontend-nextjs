@@ -30,11 +30,13 @@ const loginSchema = z.object({
   username: z
     .string()
     .min(1, "Usuário é obrigatório")
-    .min(3, "Usuário deve ter pelo menos 3 caracteres"),
+    .min(3, "Usuário deve ter pelo menos 3 caracteres")
+    .trim(),
   password: z
     .string()
     .min(1, "Senha é obrigatória")
     .min(6, "Senha deve ter pelo menos 6 caracteres")
+    .trim()
 });
 
 type LoginFormData = z.infer<typeof loginSchema>;
