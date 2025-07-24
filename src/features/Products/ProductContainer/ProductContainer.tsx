@@ -13,8 +13,8 @@ import {
 } from "@/components/ui/card";
 import { ArrowLeft, DollarSign, Tag, FileText } from "lucide-react";
 import Image from "next/image";
-import ProductNotFound from "./ProductNotFound";
-import ProductContainerSkeleton from "./ProductContainerSkeleton";
+import ProductNotFound from "./ProductNotFound/ProductNotFound";
+import ProductContainerSkeleton from "./ProductContainerSkeleton/ProductContainerSkeleton";
 
 const ProductContainer = () => {
   const params = useParams();
