@@ -119,10 +119,10 @@ const LoginContainer = () => {
                 {loginMutation.isPending ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Entrando...
+                    <p>Entrando...</p>
                   </>
                 ) : (
-                  "Entrar"
+                  <p>Entrar</p>
                 )}
               </Button>
             </form>
