@@ -229,7 +229,9 @@ export function ProductFormModalContainer({
               name="image"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>URL da Imagem</FormLabel>
+                  <FormLabel>
+                    URL da Imagem <span className="text-red-500">*</span>
+                  </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="https://exemplo.com/imagem.jpg"
