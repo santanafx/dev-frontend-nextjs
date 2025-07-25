@@ -15,7 +15,9 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
       <CardHeader>
         <div className="flex justify-between items-start">
           <div>
-            <CardTitle>Detalhes do Produto</CardTitle>
+            <CardTitle id="product-details-heading">
+              Detalhes do Produto
+            </CardTitle>
             <CardDescription>
               Informações completas sobre o produto
             </CardDescription>
@@ -31,20 +33,22 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             }
             alt={product.title}
             fill
+            priority={true}
+            sizes="(max-width: 768px) 100vw, 66vw"
             className="object-cover"
           />
         </div>
-        <div className="space-y-4">
+        <section className="space-y-4">
           <div>
-            <h3 className="font-semibold mb-2 flex items-center">
-              <FileText className="mr-2 h-4 w-4" />
+            <h2 className="font-semibold mb-2 flex items-center">
+              <FileText className="mr-2 h-4 w-4" aria-hidden="true" />
               Descrição
-            </h3>
+            </h2>
             <p className="text-muted-foreground leading-relaxed">
               {product.description}
             </p>
           </div>
-        </div>
+        </section>
       </CardContent>
     </Card>
   );
