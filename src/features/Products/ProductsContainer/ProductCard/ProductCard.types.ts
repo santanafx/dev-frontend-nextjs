@@ -6,4 +6,5 @@ export type ProductCardProps = {
   handleEdit: (product: Product) => void;
   handleDelete: (id: number) => void;
   deleteProductMutation: UseMutationResult<any, Error, string, unknown>;
+  isFirstImage: boolean;
 };
