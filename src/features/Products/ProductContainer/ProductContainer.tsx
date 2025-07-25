@@ -27,12 +27,12 @@ const ProductContainer = () => {
   }
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
+    <main className="space-y-6">
+      <header className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Button variant="outline" size="icon" asChild>
-            <Link href="/products">
-              <ArrowLeft className="h-4 w-4" />
+            <Link href="/products" aria-label="Voltar para a lista de produtos">
+              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             </Link>
           </Button>
           <div>
@@ -42,16 +42,19 @@ const ProductContainer = () => {
             <p className="text-muted-foreground">{product.category}</p>
           </div>
         </div>
-      </div>
+      </header>
       <div className="grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2 space-y-6">
+        <section
+          className="lg:col-span-2 space-y-6"
+          aria-labelledby="product-details-heading"
+        >
           <ProductDetails product={product} />
-        </div>
-        <div className="space-y-6">
+        </section>
+        <aside className="space-y-6" aria-labelledby="product-info-heading">
           <ProductInformations product={product} />
-        </div>
+        </aside>
       </div>
-    </div>
+    </main>
   );
 };
 
