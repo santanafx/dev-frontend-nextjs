@@ -38,18 +38,10 @@ pontuações excepcionais em todas as métricas:
 <summary>📸 Clique para visualizar os resultados do Lighthouse</summary>
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 20px 0;">
-  <a href="/perf1.jpg" target="_blank">
-    <img src="/perf1.jpg" alt="Lighthouse Performance Score 1" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer;" />
-  </a>
-  <a href="/perf2.jpg" target="_blank">
-    <img src="/perf2.jpg" alt="Lighthouse Performance Score 2" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer;" />
-  </a>
-  <a href="/perf3.jpg" target="_blank">
-    <img src="/perf3.jpg" alt="Lighthouse Performance Score 3" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer;" />
-  </a>
-  <a href="/perf4.jpg" target="_blank">
-    <img src="/perf4.jpg" alt="Lighthouse Performance Score 4" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer;" />
-  </a>
+  <img src="https://raw.githubusercontent.com/santanafx/dev-frontend-nextjs/main/public/perf1.jpg" alt="Lighthouse Performance Score 1" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+  <img src="https://raw.githubusercontent.com/santanafx/dev-frontend-nextjs/main/public/perf2.jpg" alt="Lighthouse Performance Score 2" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+  <img src="https://raw.githubusercontent.com/santanafx/dev-frontend-nextjs/main/public/perf3.jpg" alt="Lighthouse Performance Score 3" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+  <img src="https://raw.githubusercontent.com/santanafx/dev-frontend-nextjs/main/public/perf4.jpg" alt="Lighthouse Performance Score 4" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
 </div>
 
 </details>
