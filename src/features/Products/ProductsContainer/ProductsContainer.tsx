@@ -76,23 +76,31 @@ const ProductsContainer = () => {
           <Button
             onClick={() => setShowCreateModal(true)}
             className="bg-blue-600 hover:bg-blue-700"
+            aria-label="Adicionar novo produto"
           >
-            <Plus className="mr-2 h-4 w-4" />
+            <Plus className="mr-2 h-4 w-4" aria-hidden="true" />
             Novo Produto
           </Button>
         </div>
         <div className="flex gap-4 flex-col sm:flex-row">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+            <Search
+              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4"
+              aria-hidden="true"
+            />
             <Input
               placeholder="Buscar produtos..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10"
+              aria-label="Buscar produtos por título ou descrição"
             />
           </div>
           <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-            <SelectTrigger className="w-full sm:w-[200px]">
+            <SelectTrigger
+              className="w-full sm:w-[200px]"
+              aria-label="Filtrar por categoria"
+            >
               <SelectValue placeholder="Categoria" />
             </SelectTrigger>
             <SelectContent>
@@ -113,13 +121,14 @@ const ProductsContainer = () => {
           />
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {filteredProducts.map((product: Product) => (
+            {filteredProducts.map((product: Product, index: number) => (
               <ProductCard
                 key={product.id}
                 product={product}
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
                 deleteProductMutation={deleteProductMutation}
+                isFirstImage={index < 3}
               />
             ))}
           </div>
