@@ -27,8 +27,9 @@ const ProductCard = ({
   product,
   handleEdit,
   handleDelete,
-  deleteProductMutation
-}: ProductCardProps) => {
+  deleteProductMutation,
+  isFirstImage = false
+}: ProductCardProps & { isFirstImage?: boolean }) => {
   return (
     <Card
       key={product.id}
@@ -40,8 +41,10 @@ const ProductCard = ({
             product.image ||
             "/placeholder.svg?height=200&width=300&query=product"
           }
-          alt={product.title}
+          alt={`Imagem do produto ${product.title}`}
           fill
+          priority={isFirstImage}
+          sizes="(max-width: 768px) 100vw, 33vw"
           className="object-cover"
         />
       </div>
@@ -70,8 +73,11 @@ const ProductCard = ({
             asChild
             className="flex-1 bg-transparent"
           >
-            <Link href={`/products/${product.id}`}>
-              <Eye className="mr-2 h-4 w-4" />
+            <Link
+              href={`/products/${product.id}`}
+              aria-label={`Ver detalhes do produto ${product.title}`}
+            >
+              <Eye className="mr-2 h-4 w-4" aria-hidden="true" />
               Ver
             </Link>
           </Button>
@@ -80,8 +86,9 @@ const ProductCard = ({
             size="sm"
             className="flex-1 bg-transparent"
             onClick={() => handleEdit(product)}
+            aria-label={`Editar produto ${product.title}`}
           >
-            <Edit className="mr-2 h-4 w-4" />
+            <Edit className="mr-2 h-4 w-4" aria-hidden="true" />
             Editar
           </Button>
           <AlertDialog>
@@ -91,8 +98,10 @@ const ProductCard = ({
                 size="sm"
                 className="text-red-600 hover:text-red-700 hover:bg-red-50 bg-transparent"
                 disabled={deleteProductMutation.isPending}
+                aria-label={`Excluir produto ${product.title}`}
               >
-                <Trash2 className="h-4 w-4" />
+                <Trash2 className="h-4 w-4" aria-hidden="true" />
+                <span className="sr-only">Excluir</span>
               </Button>
             </AlertDialogTrigger>
             <AlertDialogContent>
