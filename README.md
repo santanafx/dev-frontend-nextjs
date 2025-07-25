@@ -26,6 +26,21 @@ Next.js, TypeScript e integração com a FakeStore API.
   - Cache inteligente com React Query
   - Feedback visual de carregamento e erros
 
+## 🎯 Melhorias de Performance e Acessibilidade
+
+O projeto passou por otimizações utilizando o **Lighthouse** para garantir
+excelente performance e acessibilidade. As melhorias implementadas resultaram em
+pontuações excepcionais em todas as métricas:
+
+### 📊 Resultados do Lighthouse
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 20px 0;">
+  <img src="/perf1.jpg" alt="Lighthouse Performance Score 1" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+  <img src="/perf2.jpg" alt="Lighthouse Performance Score 2" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+  <img src="/perf3.jpg" alt="Lighthouse Performance Score 3" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+  <img src="/perf4.jpg" alt="Lighthouse Performance Score 4" style="max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+</div>
+
 ## 🛠️ Tecnologias Utilizadas
 
 - **Next.js 14** - Framework React com App Router
