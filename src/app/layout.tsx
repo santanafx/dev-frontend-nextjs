@@ -19,11 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <head>
-        <ClarityAnalytics />
-      </head>
       <body className={inter.className}>
         <Providers>{children}</Providers>
+        <ClarityAnalytics />
         <Toaster />
       </body>
     </html>
