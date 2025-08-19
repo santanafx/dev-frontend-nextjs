@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/providers/Providers";
 import { Toaster } from "@/components/ui/sonner";
+import ClarityAnalytics from "@/components/common/atoms/ClarityAnalytics/ClarityAnalytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <ClarityAnalytics />
+      </head>
       <body className={inter.className}>
         <Providers>{children}</Providers>
         <Toaster />
